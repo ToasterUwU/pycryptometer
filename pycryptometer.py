@@ -5,7 +5,7 @@ class Cryptometer():
         self.api_key = api_key
         self.api_url = "https://api.cryptometer.io"
 
-    class Response():
+    class _Response():
         def __init__(self, **args):
             self.no_data_errors = [
                 "No Data",
@@ -60,7 +60,7 @@ class Cryptometer():
 
         url = self.api_url+endpoint+"?"+"&".join(args)
         r = requests.get(url)
-        return self.Response(**json.loads(r.content.decode()))
+        return self._Response(**json.loads(r.content.decode()))
 
     def market_list(self, exchange:str):
         endpoint = "/coinlist"
