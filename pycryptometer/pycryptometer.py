@@ -49,7 +49,7 @@ class Cryptometer():
         if source != None:
             args.update({"source": source.lower()})
         if period != None:
-            args.update({"period": period})
+            args.update({"period": str(period)})
         return args
 
     def _send_request(self, endpoint:str, arguments:dict={}):
@@ -171,6 +171,7 @@ class Cryptometer():
 
     def hourly_buy_sell_volume(self, coin:str):
         '''
+        PREMIUM FEATURE
         returns the buy and sell volume of the last 24 hours in 24 values - 1 value per hour
 
 
@@ -182,6 +183,7 @@ class Cryptometer():
 
     def merged_buy_sell_volume(self, coin:str, timeframe:str, exchange_type:str):
         '''
+        PREMIUM FEATURE
         returns the buy and sell volume of a coin merged from all exchanges in a specific timeframe 
         and with a specific exchange_type
 
@@ -198,6 +200,7 @@ class Cryptometer():
 
     def indicator_sma(self, exchange:str, market_pair:str, timeframe:str, source:str, period:int):
         '''
+        PREMIUM FEATURE
         SMA -> Simple Moving Average
         This gives various floats back that are the values of that indicator
 
