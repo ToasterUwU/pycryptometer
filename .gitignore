@@ -1,3 +1,4 @@
-/test.py
 /.vscode
 /__pycache__
+test*.*
+/pycryptometer/__pycache__
