@@ -3,3 +3,4 @@
 test*.*
 /pycryptometer/__pycache__
 /pycryptometer.egg-info
+/dist
