@@ -16,6 +16,8 @@ from pycryptometer import Cryptometer
 
 c = Cryptometer("YOUR_API_KEY")
 example = c.ANY_OF_THE_FUNCTIONS(THE_ARGS_IT_NEEDS)
+
+print(example.success, example.error, example.data)
 ```
 
 # The Docs
