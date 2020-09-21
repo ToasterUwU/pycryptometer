@@ -1,3 +1,5 @@
+[![Downloads](https://pepy.tech/badge/pycryptometer)](https://pepy.tech/project/pycryptometer) [![Downloads](https://pepy.tech/badge/pycryptometer/month)](https://pepy.tech/project/pycryptometer/month)
+
 # pycryptometer - API Wrapper for cryptometer.io
 
 This is a small API Wrapper. It contains all the API endpoints that exist in the moment i write this. (18.09.2020 - www.cryptometer.io/api-doc)
