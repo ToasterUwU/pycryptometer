@@ -2,7 +2,7 @@
 
 # pycryptometer - API Wrapper for cryptometer.io
 
-This is a small API Wrapper. It contains all the API endpoints that exist in the moment i write this. (18.09.2020 - www.cryptometer.io/api-doc)
+This is a small API Wrapper. It contains all the API endpoints that exist in the moment i write this. (23.09.2020 - www.cryptometer.io/api-doc)
 
 
 # Usage
@@ -18,21 +18,9 @@ from pycryptometer import Cryptometer
 
 c = Cryptometer("YOUR_API_KEY")
 example = c.ANY_OF_THE_FUNCTIONS(THE_ARGS_IT_NEEDS)
-
-print(example.success, example.error, example.data)
 ```
 
 # The Docs
-
-## The _Response Object:
-
-
-Every function returns a Object with 3 Properties: success, error and data.
-
-- Success (True or False):  Shows if the API call was successfull.
-- Error (None or String):   Contains the error that occured if "success" is False.
-- Data (Array or Dict):     Contains the data that the API gave back.
-#
 ## The Cryptometer Class:
 
 ### The Arguments:
@@ -41,7 +29,7 @@ Every function returns a Object with 3 Properties: success, error and data.
 
 - market_pair: (String) Pair of Currencys. Each exchange has his own pairs. You can find them by using market_list()
 
-- pair: (String) Almost like market_pair. I dont really know why there are two different of these. You can find them by using market_list()
+- pair: (String) Almost like market_pair, but generalized by "cryptometer.io". You can find them by using market_list()
 
 - coin: (String) A Cryptocurrency. Example: BTC, XRP or XMR. Can also found with market_list()
 
@@ -51,7 +39,7 @@ Every function returns a Object with 3 Properties: success, error and data.
 
 - source: (String) Can be "open", "close", "high", "low" or "volume"
 
-- period: (Integer) Between 1 and 300. The official docs dont give a explanation what this is or what it does.
+- period: (Integer) Between 1 and 300. The period in days that a indicator uses to display data.
 
 #
 
@@ -84,7 +72,9 @@ Every function returns a Object with 3 Properties: success, error and data.
 
 - open_interest(exchange, market_pair) -> returns the open interest of one coin on one exchange
 
-- merged_orderbook -> returns all bids and ask values merged from all exchanges
+- merged_orderbook() -> returns all bids and ask values merged from all exchanges
+
+- whale_trades(exchange, symbol) -> returns executed large trades of one exchange
 
 # Help and Suggestions
 

@@ -3,32 +3,34 @@ class Cryptometer():
         self._api_key = api_key
         self._api_url = "https://api.cryptometer.io"
 
-    class _Response():
-        def __init__(self, **args):
-            self.no_data_errors = [
+    def __response(self, **args):
+            no_data_errors = [
                 "No Data",
                 "No Liquidation"
             ]
 
-            self.success = args["success"]
-            self.error = args["error"]
+            success = args["success"]
+            error = args["error"]
             if "data" in args:
-                self.data = args["data"]
+                data = args["data"]
             else:
-                self.data = []
+                data = []
 
-            if self.success == "true":
-                self.success = True
+            if success == "true":
+                success = True
             else:
-                self.success = False
+                success = False
 
-            if self.error == "false":
-                self.error = None
+            if error == "false":
+                error = None
             else:
-                if args["error"] not in self.no_data_errors:
-                    raise Exception(self.error)
+                if args["error"] not in no_data_errors:
+                    raise Exception(error)
                 else:
-                    self.success = True
+                    success = True
+            
+            if success == True:
+                return data
 
     def _casefold(self, exchange=None, market_pair=None, pair=None, coin=None, timeframe=None, exchange_type=None, source=None, period=None):
         args = {}
@@ -61,7 +63,7 @@ class Cryptometer():
 
         url = self._api_url+endpoint+"?"+"&".join(args)
         r = requests.get(url)
-        return self._Response(**json.loads(r.content.decode()))
+        return self.__response(**json.loads(r.content.decode()))
 
     def market_list(self, exchange:str):
         '''
@@ -241,3 +243,17 @@ class Cryptometer():
         '''
         endpoint = "/merged-orderbook"
         return self._send_request(endpoint)
+
+    def whale_trades(self, exchange:str, coin:str):
+        '''
+        PREMIUM FEATURE
+        returns executed large trades of one exchange
+
+
+        exchange: Exchange Platform like "binance"
+
+        coin: A Cryptocurrency. Example: BTC, XRP or XMR. Can also be found with market_list()
+        '''
+        endpoint = "/xtrades"
+        args = self._casefold(exchange=exchange, coin=coin)
+        return self._send_request(endpoint, args)
