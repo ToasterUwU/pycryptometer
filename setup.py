@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name = "pycryptometer",
-    version = "1.1",
+    version = "1.2",
     license = "MIT",
     author = "ToasterUwU",
     author_email="toasterger@gmail.com",

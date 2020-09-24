@@ -17,7 +17,8 @@ This is a small API Wrapper. It contains all the API endpoints that exist in the
 from pycryptometer import Cryptometer
 
 c = Cryptometer("YOUR_API_KEY")
-example = c.ANY_OF_THE_FUNCTIONS(THE_ARGS_IT_NEEDS)
+syntax = c.ANY_OF_THE_CATEGORIES.ANY_OF_THE_FUNCTIONS(THE_ARGS_IT_NEEDS)
+example = c.infos.market_list("binance")
 ```
 
 # The Docs
@@ -44,37 +45,45 @@ example = c.ANY_OF_THE_FUNCTIONS(THE_ARGS_IT_NEEDS)
 #
 
 ### The functions:
-- market_list(exchange) -> returns all market_pair's of the exchange
+- **infos**:
 
-- tickerlist(exchange) -> returns value and change data for every market_pair
+    - market_list(exchange) -> returns all market_pair's of the exchange
 
-- single_ticker(exchange, market_pair) -> returns the same as tickerlist() but only for one market_pair
+    - tickerlist(exchange) -> returns value and change data for every market_pair
 
-- trend_indicator() -> returns "trend_score", "buy_pressure", "sell_pressure" and "timestamp"
+    - single_ticker(exchange, market_pair) -> returns the same as tickerlist() but only for one market_pair
 
-- btc_liquidation() -> returns "longs" and "shorts" for BTC
+    - today_longs_shorts(exchange, coin) -> returns the longs and shorts of a coin from one exchange
 
-- bitmex_liquidation(market_pair) -> returns Buy and Sell data with "market_pair", "quantity", "side" (SELL or BUY) and "timestamp"
+    - open_interest(exchange, market_pair) -> returns the open interest of one coin on one exchange
 
-- rapid_movements() -> returns all detected rapid movements of all exchanges
+    - merged_orderbook() -> returns all bids and ask values merged from all exchanges
 
-- trade_volume_24h(exchange, pair) -> returns "buy" and "sell"
+    - whale_trades(exchange, symbol) -> returns executed large trades of one exchange
 
-- today_merged_volume(coin) -> returns "buy", "sell" and "timestamp"
+    - rapid_movements() -> returns all detected rapid movements of all exchanges
 
-- today_longs_shorts(exchange, coin) -> returns the longs and shorts of a coin from one exchange
+- **indicators**:
 
-- hourly_buy_sell_volume(coin) -> returns the buy and sell volume of the last 24 hours in 24 values - 1 value per hour
+    - trend_indicator() -> returns "trend_score", "buy_pressure", "sell_pressure" and "timestamp"
 
-- merged_buy_sell_volume(coin, timeframe, exchange_type) -> returns the buy and sell volume of a coin merged from all exchanges in a specific timeframe and with a specific exchange_type
+    - indicator_sma(exchange, market_pair, timeframe, source, period) -> This gives various floats back that are the values of that indicator
 
-- indicator_sma(exchange, market_pair, timeframe, source, period) -> This gives various floats back that are the values of that indicator
+- **liquidations**:
 
-- open_interest(exchange, market_pair) -> returns the open interest of one coin on one exchange
+    - btc_liquidation() -> returns "longs" and "shorts" for BTC
 
-- merged_orderbook() -> returns all bids and ask values merged from all exchanges
+    - bitmex_liquidation(market_pair) -> returns Buy and Sell data with "market_pair", "quantity", "side" (SELL or BUY) and "timestamp"
 
-- whale_trades(exchange, symbol) -> returns executed large trades of one exchange
+- **volumes**:
+
+    - trade_volume_24h(exchange, pair) -> returns "buy" and "sell"
+
+    - today_merged_volume(coin) -> returns "buy", "sell" and "timestamp"
+
+    - hourly_buy_sell_volume(coin) -> returns the buy and sell volume of the last 24 hours in 24 values - 1 value per hour
+
+    - merged_buy_sell_volume(coin, timeframe, exchange_type) -> returns the buy and sell volume of a coin merged from all exchanges in a specific timeframe and with a specific exchange_type
 
 # Help and Suggestions
 
