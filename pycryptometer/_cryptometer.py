@@ -45,7 +45,7 @@ class Cryptometer():
             if success == True:
                 return data
 
-    def _casefold(self, exchange=None, market_pair=None, pair=None, coin=None, timeframe=None, exchange_type=None, source=None, period=None):
+    def _casefold(self, exchange=None, market_pair=None, pair=None, coin=None, timeframe=None, exchange_type=None, source=None, period=None, long_period=None, short_period=None, signal_period=None):
         args = {}
         if exchange != None:
             args.update({"e": exchange.lower()})
@@ -63,6 +63,12 @@ class Cryptometer():
             args.update({"source": source.lower()})
         if period != None:
             args.update({"period": str(period)})
+        if long_period != None:
+            args.update({"long_period": str(long_period)})
+        if short_period != None:
+            args.update({"short_period": str(short_period)})
+        if signal_period != None:
+            args.update({"signal_period": str(signal_period)})
         return args
 
     def _send_request(self, endpoint:str, arguments:dict={}):        

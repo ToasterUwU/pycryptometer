@@ -2,14 +2,14 @@ class _Liquidations():
         def __init__(self, parent):
             self._parent = parent
         
-        def btc_liquidation(self):
+        def btc(self):
             '''
             returns "longs" and "shorts" for BTC
             '''
             endpoint = "/liquidation-data"
             return self._parent._send_request(endpoint)
 
-        def bitmex_liquidation(self, market_pair:str):
+        def bitmex(self, market_pair:str):
             '''
             returns Buy and Sell data with "market_pair", "quantity", "side" (SELL or BUY) and "timestamp"
 

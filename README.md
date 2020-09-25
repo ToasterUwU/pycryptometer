@@ -1,8 +1,8 @@
 [![Downloads](https://pepy.tech/badge/pycryptometer)](https://pepy.tech/project/pycryptometer)
 
-# pycryptometer - API Wrapper for cryptometer.io
+# pycryptometer - API Wrapper for "cryptometer.io"
 
-This is a small API Wrapper. It contains all the API endpoints that exist in the moment i write this. (23.09.2020 - www.cryptometer.io/api-doc)
+This is a small API Wrapper. It contains all the API endpoints that exist. This package will be updated whenever there are new endpoints.
 
 
 # Usage
@@ -21,10 +21,9 @@ syntax = c.ANY_OF_THE_CATEGORIES.ANY_OF_THE_FUNCTIONS(THE_ARGS_IT_NEEDS)
 example = c.infos.market_list("binance")
 ```
 
-# The Docs
-## The Cryptometer Class:
+# The Cryptometer Class:
 
-### The Arguments:
+### **The Arguments:**
 
 - exchange: (String) The name of the trading website. Example: "Binance"
 
@@ -40,11 +39,20 @@ example = c.infos.market_list("binance")
 
 - source: (String) Can be "open", "close", "high", "low" or "volume"
 
-- period: (Integer) Between 1 and 300. The period in days that a indicator uses to display data.
+- period: (Integer) Between 1 and 300. A period in days that a indicator uses to display data.
 
-#
+- long_period: (Integer) Same rules and usage as "period"
 
-### The functions:
+- short_period: (Integer) Same rules and usage as "period"
+
+- signal_period: (Integer) Same rules and usage as "period"
+
+
+
+### **The functions:**
+
+    💲: Premium only function
+
 - **infos**:
 
     - market_list(exchange) -> returns all market_pair's of the exchange
@@ -59,31 +67,43 @@ example = c.infos.market_list("binance")
 
     - merged_orderbook() -> returns all bids and ask values merged from all exchanges
 
-    - whale_trades(exchange, symbol) -> returns executed large trades of one exchange
+    - 💲 whale_trades(exchange, symbol) -> returns executed large trades of one exchange
 
     - rapid_movements() -> returns all detected rapid movements of all exchanges
 
 - **indicators**:
 
-    - trend_indicator() -> returns "trend_score", "buy_pressure", "sell_pressure" and "timestamp"
+    - trend() -> returns "trend_score", "buy_pressure", "sell_pressure" and "timestamp"
 
-    - indicator_sma(exchange, market_pair, timeframe, source, period) -> This gives various floats back that are the values of that indicator
+    - 💲 sma(exchange, market_pair, timeframe, source, period) -> Simple Moving Average
+
+    - 💲 atr(exchange, market_pair, timeframe, period) -> Average True Range
+
+    - 💲 psar(exchange, market_pair, timeframe, source, period) -> Parabolic Stop And Reverse
+
+    - 💲 ema(exchange, market_pair, timeframe, source, period) -> Exponential Moving Average
+    
+    - 💲 rsi(exchange, market_pair, timeframe, source, period) -> Relative Strength Index
+
+    - 💲 cci(exchange, market_pair, timeframe, period) -> Commodity Channel Index
+
+    - 💲 macd(exchange, market_pair, timeframe, source, long_period, short_period, signal_period) -> Moving Average Convergence Divergence
 
 - **liquidations**:
 
-    - btc_liquidation() -> returns "longs" and "shorts" for BTC
+    - btc() -> returns "longs" and "shorts" for BTC
 
-    - bitmex_liquidation(market_pair) -> returns Buy and Sell data with "market_pair", "quantity", "side" (SELL or BUY) and "timestamp"
+    - bitmex(market_pair) -> returns Buy and Sell data with "market_pair", "quantity", "side" (SELL or BUY) and "timestamp"
 
 - **volumes**:
 
-    - trade_volume_24h(exchange, pair) -> returns "buy" and "sell"
+    - today_trade_volume(exchange, pair) -> returns "buy" and "sell"
 
     - today_merged_volume(coin) -> returns "buy", "sell" and "timestamp"
 
-    - hourly_buy_sell_volume(coin) -> returns the buy and sell volume of the last 24 hours in 24 values - 1 value per hour
+    - 💲 hourly_buy_sell_volume(coin) -> returns the buy and sell volume of the last 24 hours in 24 values - 1 value per hour
 
-    - merged_buy_sell_volume(coin, timeframe, exchange_type) -> returns the buy and sell volume of a coin merged from all exchanges in a specific timeframe and with a specific exchange_type
+    - 💲 merged_buy_sell_volume(coin, timeframe, exchange_type) -> returns the buy and sell volume of a coin merged from all exchanges in a specific timeframe and with a specific exchange_type
 
 # Help and Suggestions
 

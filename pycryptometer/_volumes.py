@@ -2,7 +2,7 @@ class _Volumes():
     def __init__(self, parent):
         self._parent = parent
     
-    def trade_volume_24h(self, exchange:str, pair:str):
+    def today_trade_volume(self, exchange:str, pair:str):
         '''
         returns "buy" and "sell"
 
