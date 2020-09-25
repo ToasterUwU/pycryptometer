@@ -51,7 +51,7 @@ example = c.infos.market_list("binance")
 
 ### **The functions:**
 
-    💲: Premium only function
+    Big Font: Premium only function
 
 - **infos**:
 
@@ -67,7 +67,7 @@ example = c.infos.market_list("binance")
 
     - merged_orderbook() -> returns all bids and ask values merged from all exchanges
 
-    - 💲 whale_trades(exchange, symbol) -> returns executed large trades of one exchange
+    - **whale_trades(exchange, symbol) -> returns executed large trades of one exchange**
 
     - rapid_movements() -> returns all detected rapid movements of all exchanges
 
@@ -75,19 +75,19 @@ example = c.infos.market_list("binance")
 
     - trend() -> returns "trend_score", "buy_pressure", "sell_pressure" and "timestamp"
 
-    - 💲 sma(exchange, market_pair, timeframe, source, period) -> Simple Moving Average
+    - **sma(exchange, market_pair, timeframe, source, period) -> Simple Moving Average**
 
-    - 💲 atr(exchange, market_pair, timeframe, period) -> Average True Range
+    - **atr(exchange, market_pair, timeframe, period) -> Average True Range**
 
-    - 💲 psar(exchange, market_pair, timeframe, source, period) -> Parabolic Stop And Reverse
+    - **psar(exchange, market_pair, timeframe, source, period) -> Parabolic Stop And Reverse**
 
-    - 💲 ema(exchange, market_pair, timeframe, source, period) -> Exponential Moving Average
+    - **ema(exchange, market_pair, timeframe, source, period) -> Exponential Moving Average**
     
-    - 💲 rsi(exchange, market_pair, timeframe, source, period) -> Relative Strength Index
+    - **rsi(exchange, market_pair, timeframe, source, period) -> Relative Strength Index**
 
-    - 💲 cci(exchange, market_pair, timeframe, period) -> Commodity Channel Index
+    - **cci(exchange, market_pair, timeframe, period) -> Commodity Channel Index**
 
-    - 💲 macd(exchange, market_pair, timeframe, source, long_period, short_period, signal_period) -> Moving Average Convergence Divergence
+    - **macd(exchange, market_pair, timeframe, source, long_period, short_period, signal_period) -> Moving Average Convergence Divergence**
 
 - **liquidations**:
 
@@ -101,9 +101,9 @@ example = c.infos.market_list("binance")
 
     - today_merged_volume(coin) -> returns "buy", "sell" and "timestamp"
 
-    - 💲 hourly_buy_sell_volume(coin) -> returns the buy and sell volume of the last 24 hours in 24 values - 1 value per hour
+    - **hourly_buy_sell_volume(coin) -> returns the buy and sell volume of the last 24 hours in 24 values - 1 value per hour**
 
-    - 💲 merged_buy_sell_volume(coin, timeframe, exchange_type) -> returns the buy and sell volume of a coin merged from all exchanges in a specific timeframe and with a specific exchange_type
+    - **merged_buy_sell_volume(coin, timeframe, exchange_type) -> returns the buy and sell volume of a coin merged from all exchanges in a specific timeframe and with a specific exchange_type**
 
 # Help and Suggestions
 
