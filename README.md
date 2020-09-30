@@ -20,6 +20,11 @@ c = Cryptometer("YOUR_API_KEY")
 syntax = c.ANY_OF_THE_CATEGORIES.ANY_OF_THE_FUNCTIONS(THE_ARGS_IT_NEEDS)
 example = c.infos.market_list("binance")
 ```
+Every function will return either of the following things:
+
+- list
+- dictonary
+- list filles with dictonarys
 
 # The Cryptometer Class:
 

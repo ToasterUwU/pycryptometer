@@ -79,4 +79,15 @@ class Cryptometer():
 
         url = self._api_url+endpoint+"?"+"&".join(args)
         r = requests.get(url)
-        return self._response(**json.loads(r.content.decode()))
+        r = self._response(**json.loads(r.content.decode()))
+        return self._fix_data(r)
+    
+    def _fix_data(self, r):
+        if r != [] and type(r) == list: #list but not empty list
+            if type(r[0]) == list: #first thing in it == list
+                if len(r) == 1: #first thing == only thing
+                    r = r[0]
+            elif type(r[0]) == dict: #first thing in it == dict
+                if len(r) == 1: #first thing == only thing
+                    r = r[0]
+        return r
