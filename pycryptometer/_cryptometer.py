@@ -17,35 +17,41 @@ class Cryptometer():
         self.volumes = _Volumes(parent=self)
 
     def _response(self, **args):
-            no_data_errors = [
-                "No Data",
-                "No Liquidation"
-            ]
+        '''
+        This function is checking the output of the API and raises Exceptions if something goes wrong.
+        '''
+        no_data_errors = [ #Errors that dont raise a Execption
+            "No Data",
+            "No Liquidation"
+        ]
 
-            success = args["success"]
-            error = args["error"]
-            if "data" in args:
-                data = args["data"]
+        success = args["success"]
+        error = args["error"]
+        if "data" in args:
+            data = args["data"]
+        else:
+            data = []
+
+        if success == "true":
+            success = True
+        else:
+            success = False
+
+        if error == "false":
+            error = None
+        else:
+            if args["error"] not in no_data_errors:
+                raise Exception(error)
             else:
-                data = []
-
-            if success == "true":
                 success = True
-            else:
-                success = False
-
-            if error == "false":
-                error = None
-            else:
-                if args["error"] not in no_data_errors:
-                    raise Exception(error)
-                else:
-                    success = True
-            
-            if success == True:
-                return data
+        
+        if success == True:
+            return data
 
     def _casefold(self, exchange=None, market_pair=None, pair=None, coin=None, timeframe=None, exchange_type=None, source=None, period=None, long_period=None, short_period=None, signal_period=None):
+        '''
+        This functions takes all arguments and normalizeses them, so the API accepts them.
+        '''
         args = {}
         if exchange != None:
             args.update({"e": exchange.lower()})
@@ -71,23 +77,26 @@ class Cryptometer():
             args.update({"signal_period": str(signal_period)})
         return args
 
-    def _send_request(self, endpoint:str, arguments:dict={}):        
+    def _send_request(self, endpoint:str, arguments:dict={}):
+        '''
+        This function sends the API request and returns the json response as dict
+        '''
         args = ["api_key="+self._api_key]
 
         for x in arguments.items():
-            args.append(x[0]+"="+x[1])
+            args.append(x[0]+"="+x[1]) #throwing the link arguments together
 
-        url = self._api_url+endpoint+"?"+"&".join(args)
-        r = requests.get(url)
-        r = self._response(**json.loads(r.content.decode()))
-        return self._fix_data(r)
+        url = self._api_url+endpoint+"?"+"&".join(args) #assembling the url
+        r = requests.get(url) #sending the API request
+        r = self._response(**json.loads(r.content.decode())) #sending data to _response for error checking
+        return self._fix_data(r) #returning the data after sending it to _fix_data for fixing the topology
     
     def _fix_data(self, r):
+        '''
+        This function is fixing the formatting of the data
+        '''
         if r != [] and type(r) == list: #list but not empty list
-            if type(r[0]) == list: #first thing in it == list
-                if len(r) == 1: #first thing == only thing
-                    r = r[0]
-            elif type(r[0]) == dict: #first thing in it == dict
+            if type(r[0]) == list or type(r[0]) == dict: #first thing in it == list or dict
                 if len(r) == 1: #first thing == only thing
                     r = r[0]
         return r

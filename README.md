@@ -24,7 +24,8 @@ Every function will return either of the following things:
 
 - list
 - dictonary
-- list filles with dictonarys
+- list filled with dictonarys
+- dictonary filles with lists
 
 # The Cryptometer Class:
 

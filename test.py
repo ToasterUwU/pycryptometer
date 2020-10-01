@@ -1,13 +1,20 @@
 import pycryptometer
 import time
 
-test = pycryptometer.Cryptometer('9bPCg52Z2Gl9VHN1ze1yFVHIJ85qN6WtRoRlP00j')
+test = pycryptometer.Cryptometer('YOUR_API_KEY')
 
 #infos
 print(test.infos.market_list("binance"))
+print(test.infos.tickerlist("binance"))
+print(test.infos.single_ticker("binance", "BTC-USDT"))
+print(test.infos.today_longs_shorts("binance", "BTC"))
+print(test.infos.open_interest("binance", "BTC-USDT"))
+print(test.infos.merged_orderbook())
+print(test.infos.whale_trades("binance", "BTC"))
+print(test.infos.rapid_movements())
 
 #Indicators
-time.sleep(5)
+time.sleep(5) #pausing for not breaking the rule of 10 requests in 5 seconds
 print(test.indicators.trend())
 print(test.indicators.sma("binance", "BTC-USDT", "4h", "open", 200))
 print(test.indicators.atr("binance", "BTC-USDT", "4h", 200))
@@ -24,5 +31,7 @@ print(test.liquidations.bitmex("BTCUSD"))
 
 #volumes
 time.sleep(5)
+print(test.volumes.today_trade_volume("binance", "BTC-USD"))
+print(test.volumes.today_merged_volume("BTC"))
 print(test.volumes.hourly_buy_sell_volume("BTC"))
 print(test.volumes.merged_buy_sell_volume("BTC", "4h", "futures"))
