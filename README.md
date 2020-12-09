@@ -113,4 +113,4 @@ Every function will return either of the following things:
 
 # Help and Suggestions
 
-For help with this libary, bugs you found or suggestions you can write a Issue or join my Discord: https://discord.gg/QuqaCuF
+For help with this libary, bugs you found or suggestions you can write a Issue or join my Discord: https://discord.gg/BFBY5qxu8d
