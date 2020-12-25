@@ -12,6 +12,7 @@ print(test.infos.open_interest("binance", "BTC-USDT"))
 print(test.infos.merged_orderbook())
 print(test.infos.whale_trades("binance", "BTC"))
 print(test.infos.rapid_movements())
+print(test.infos.coin_info("binance", "all"))
 
 #Indicators
 time.sleep(5) #pausing for not breaking the rule of 10 requests in 5 seconds

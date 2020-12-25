@@ -53,6 +53,8 @@ Every function will return either of the following things:
 
 - signal_period: (Integer) Same rules and usage as "period"
 
+- filter: (String) Filter for coin_info, can be: defi, pow, mineable, stablecoin, privacy, filesharing or all
+
 
 
 ### **The functions:**
@@ -77,6 +79,8 @@ Every function will return either of the following things:
 
     - rapid_movements() -> returns all detected rapid movements of all exchanges
 
+    - **coin_info(exchange, filter) -> returns all available infos about a cryptocurrency**
+
 - **indicators**:
 
     - trend() -> returns "trend_score", "buy_pressure", "sell_pressure" and "timestamp"
@@ -88,7 +92,7 @@ Every function will return either of the following things:
     - **psar(exchange, market_pair, timeframe, source, period) -> Parabolic Stop And Reverse**
 
     - **ema(exchange, market_pair, timeframe, source, period) -> Exponential Moving Average**
-    
+
     - **rsi(exchange, market_pair, timeframe, source, period) -> Relative Strength Index**
 
     - **cci(exchange, market_pair, timeframe, period) -> Commodity Channel Index**
