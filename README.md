@@ -1,5 +1,3 @@
-[![Downloads](https://pepy.tech/badge/pycryptometer)](https://pepy.tech/project/pycryptometer)
-
 # pycryptometer - API Wrapper for "cryptometer.io"
 
 This is a small API Wrapper. It contains all the API endpoints that exist. This package will be updated whenever there are new endpoints.
