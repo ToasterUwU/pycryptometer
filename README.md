@@ -1,6 +1,8 @@
 # pycryptometer - API Wrapper for "cryptometer.io"
 
-This is a small API Wrapper. It contains all the API endpoints that exist. This package will be updated whenever there are new endpoints.
+This is a small API Wrapper. It contains all the API endpoints that exist. This package will be updated whenever there are new endpoints. 
+
+(Nope, not anymore since the API Devs promised to cooperate but revoked my premium access (that i needed for testing) and dont tell me about updates like they promised)
 
 
 # Usage
